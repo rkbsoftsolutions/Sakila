@@ -1,0 +1,106 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-content" ng-controller="chrisCustomerDetailAddNewCtrl">
+	<ol class="breadcrumb">
+  		<li><a href="#">Home</a></li>
+  		<li><a ui-sref="chris-customers">Customer</a></li>
+  		<li class="active" ng-if="!view.newCustomer.customer_id">Add</li>
+  		<li class="active" ng-if="view.newCustomer.customer_id">Edit</li>
+	</ol>
+	
+	<div class="alert alert-info" ng-if="view.customMsg != ''" ng-bind="view.customMsg"></div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<form class="form-horizontal" role="form" name="customerForm">
+				<div class="form-group" ng-if="view.newCustomer.customer_id">
+		    		<label class="col-sm-2 control-label">ID</label>
+		    		<div class="col-sm-10">
+		      			<div class="form-control" ng-bind="view.newCustomer.customer_id"></div>
+		    		</div>
+		  		</div>
+			  	<div class="form-group">
+			    	<label class="col-sm-2 control-label">Store</label>
+			    	<div class="col-sm-10">
+			    		<select class="form-control" ng-model="view.newCustomer.store_id">
+			    			<option ng-repeat="store in view.preloadedData.storeList" ng-bind="store.SID" value="{{store.SID}}"></option>
+			    		</select>
+			    	</div>
+			  	</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">First Name</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCustomer.first_name" placeholder="First Name">
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">Last Name</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCustomer.last_name" placeholder="Last Name">
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">Email</label>
+		    		<div class="col-sm-10">
+		      			<input type="email" class="form-control" ng-model="view.newCustomer.email" placeholder="Email">
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+			    	<label class="col-sm-2 control-label">Country</label>
+			    	<div class="col-sm-10">
+			    		<select class="form-control" ng-model="view.selectedCountry">
+			    			<option ng-repeat="country in view.preloadedData.countryList" ng-bind="country.country" value="{{country.country_id}}" ng-selected="country.country_id == view.selectedCountry"></option>
+			    		</select>
+			    	</div>
+			  	</div>
+			  	<div class="form-group">
+			    	<label class="col-sm-2 control-label">City</label>
+			    	<div class="col-sm-10">
+			    		<select class="form-control" ng-model="view.newCustomer.city_id">
+			    			<option ng-repeat="city in view.preloadedData.cityList" ng-bind="city.city" value="{{city.city_id}}" ng-selected="city.city_id == view.newCustomer.city_id"></option>
+			    		</select>
+			    	</div>
+			  	</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">Postal Code</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCustomer.postal_code" placeholder="Postal Code">
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">District</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCustomer.district" placeholder="District">
+		    		</div>
+		  		</div>
+				<div class="form-group">
+		    		<label class="col-sm-2 control-label">Phone</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCustomer.phone" placeholder="Phone">
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">Address</label>
+		    		<div class="col-sm-10">
+		      			<textarea class="form-control" ng-model="view.newCustomer.address" placeholder="Address"></textarea>
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+			    	<label class="col-sm-2 control-label">Is Active</label>
+			    	<div class="col-sm-10">
+			    		<select class="form-control" ng-model="view.newCustomer.active">
+			    			<option value="1">Active</option>
+			    			<option value="0">Inactive</option>
+			    		</select>
+			    	</div>
+			  	</div>
+			  	<div class="form-group">
+			    	<div class="col-sm-offset-2 col-sm-10">
+			      		<button type="submit" ng-disabled="customerForm.$invalid" class="btn btn-default" ng-click="view.SaveChanges(customerForm)">
+			      			<span ng-if="!view.newCustomer.customer_id">Add</span>
+			      			<span ng-if="view.newCustomer.customer_id">Edit</span>
+			      		</button>
+			    	</div>
+			  	</div>
+			</form>
+		</div>
+	</div>
+</div>

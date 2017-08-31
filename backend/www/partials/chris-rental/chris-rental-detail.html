@@ -1,0 +1,104 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-content" ng-controller="chrisRentalDetailCtrl">
+	<ol class="breadcrumb">
+  		<li><a href="#">Home</a></li>
+  		<li><a ui-sref="chris-rental">Rental</a></li>
+  		<li class="active">View</li>
+	</ol>
+	<div class="alert alert-info" ng-if="view.isLoading">Loading data in progress....<i class="fa fa-spinner"></i></div>
+
+	<div class="alert alert-info" ng-if="!view.isLoading && !view.rental.success && view.rental.msg != ''" ng-bind="view.rental.msg"></div>
+
+	<div ng-if="!view.isLoading && view.rental.success">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="btn-group" dropdown>
+	  				<button type="button" class="btn btn-default dropdown-toggle">
+	    				Export <span class="caret"></span>
+	  				</button>
+	  				<ul class="dropdown-menu" role="menu">
+	    				<li><a href="#">Action</a></li>
+	  				</ul>
+				</div>
+
+				<div class="btn-group" dropdown>
+      				<button type="button" class="btn btn-default dropdown-toggle">
+        				Actions <span class="caret"></span>
+      				</button>
+      				<ul class="dropdown-menu" role="menu">
+        				<li><a ui-sref="chris-rental-detail-addnew-edit({rentalId: view.rental.data.rental_id})">Edit</a></li>
+    					<li><a ui-sref="chris-rental-detail-addnew-copy({rentalId: view.rental.data.rental_id})">Copy</a></li>
+    					<li><a ng-click="view.doDeleteRental()">Delete</a></li>
+      				</ul>
+    			</div>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>ID</td>
+							<td ng-bind="view.rental.data.rental_id"></td>
+						</tr>
+						<tr>
+							<td>Rental Date</td>
+							<td ng-bind="view.rental.data.rental_date"></td>
+						</tr>
+						<tr>
+							<td>Return Date</td>
+							<td ng-bind="view.rental.data.return_date"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<tabset>
+    				<tab heading="Specification">
+    					<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>Inventory</td>
+									<td ng-bind="view.rental.data.inventory_id"></td>
+								</tr>
+								<tr>
+									<td>Customer</td>
+									<td ng-bind="view.rental.data.customer_name"></td>
+								</tr>
+								<tr>
+									<td>Staff</td>
+									<td ng-bind="view.rental.data.staff_name"></td>
+								</tr>
+							</tbody>
+						</table>
+    				</tab>
+    				<tab heading="Description">
+    					Description here.
+    				</tab>
+  				</tabset>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<pager total-items="view.paging.totalItem" page="view.paging.page"></pager>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="deleteConfirmationDialog.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Rental Removal Confirmation</h3>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Yes</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

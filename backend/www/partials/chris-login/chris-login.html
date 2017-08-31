@@ -1,0 +1,12 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-content" ng-controller="chrisLoginCtrl">
+	<div class="alert alert-danger" ng-if="view.error && view.error != ''" ng-bind="view.error"></div>
+	<form class="form-signin" role="form" name="loginForm">
+	    <h2 class="form-signin-heading">Please sign in</h2>
+	    <input type="email" ng-model="view.loginForm.email" class="form-control" placeholder="Email address" required>
+	    <input type="password" ng-model="view.loginForm.password" class="form-control" placeholder="Password" required>
+	    <!-- <label class="checkbox">
+	      <input type="checkbox" value="remember-me"> Remember me
+	    </label> -->
+	    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid" ng-click="view.doLogin(loginForm);">Sign in</button>
+  	</form>
+</div>

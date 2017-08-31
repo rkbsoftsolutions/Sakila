@@ -1,0 +1,22 @@
+{
+  "name": "chris-webapp",
+  "version": "1.0.0",
+  "description": "Chris Webapp",
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "co-body": "^5.1.1",
+    "connect": "^3.6.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mysql": "*",
+    "redis": "^2.8.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

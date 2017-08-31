@@ -1,0 +1,38 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-content" ng-controller="chrisCountryDetailAddNewCtrl">
+	<ol class="breadcrumb">
+  		<li><a href="#">Home</a></li>
+  		<li><a ui-sref="chris-country">Country</a></li>
+  		<li class="active" ng-if="!view.newCountry.country_id">Add</li>
+  		<li class="active" ng-if="view.newCountry.country_id">Edit</li>
+	</ol>
+	
+	<div class="alert alert-info" ng-if="view.customMsg != ''" ng-bind="view.customMsg"></div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<form class="form-horizontal" role="form" name="countryForm">
+				<div class="form-group" ng-if="view.newCountry.country_id">
+		    		<label class="col-sm-2 control-label">ID</label>
+		    		<div class="col-sm-10">
+		      			<div class="form-control" ng-bind="view.newCountry.country_id"></div>
+		    		</div>
+		  		</div>
+		  		<div class="form-group">
+		    		<label class="col-sm-2 control-label">Name</label>
+		    		<div class="col-sm-10">
+		      			<input type="text" class="form-control" ng-model="view.newCountry.country" placeholder="Name">
+		    		</div>
+		  		</div>
+		  		
+			  	<div class="form-group">
+			    	<div class="col-sm-offset-2 col-sm-10">
+			      		<button type="submit" ng-disabled="countryForm.$invalid" class="btn btn-default" ng-click="view.SaveChanges(countryForm)">
+			      			<span ng-if="!view.newCountry.country_id">Add</span>
+			      			<span ng-if="view.newCountry.country_id">Edit</span>
+			      		</button>
+			    	</div>
+			  	</div>
+			</form>
+		</div>
+	</div>
+</div>

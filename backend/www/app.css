@@ -1,0 +1,35 @@
+.main-content {
+  padding: 60px;
+}
+.valign-center {
+	vertical-align: center;
+}
+.margin-top-8px {
+	margin-top: 8px;
+	margin-bottom: 0px;
+	padding: 0px;
+	height: 0px;
+}
+.pagination, .pager {
+	margin: 0px!important;
+	float: left;
+}
+.width-110px {
+	min-width: 110px;
+	width: 110px;
+	max-width: 110px;
+}
+.table-bordered {
+	border-collapse: initial!important;
+}
+.table-bordered td, .table-bordered th {
+	border-top: 0px none!important;
+	border-left: 0px none!important;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}

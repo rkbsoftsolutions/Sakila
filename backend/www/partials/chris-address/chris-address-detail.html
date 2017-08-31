@@ -1,0 +1,108 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main-content" ng-controller="chrisAddressDetailCtrl">
+	<ol class="breadcrumb">
+  		<li><a href="#">Home</a></li>
+  		<li><a ui-sref="chris-address">Address</a></li>
+  		<li class="active">View</li>
+	</ol>
+	<div class="alert alert-info" ng-if="view.isLoading">Loading data in progress....<i class="fa fa-spinner"></i></div>
+
+	<div class="alert alert-info" ng-if="!view.isLoading && !view.address.success && view.address.msg != ''" ng-bind="view.address.msg"></div>
+
+	<div ng-if="!view.isLoading && view.address.success">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="btn-group" dropdown>
+	  				<button type="button" class="btn btn-default dropdown-toggle">
+	    				Export <span class="caret"></span>
+	  				</button>
+	  				<ul class="dropdown-menu" role="menu">
+	    				<li><a href="#">Action</a></li>
+	  				</ul>
+				</div>
+
+				<div class="btn-group" dropdown>
+      				<button type="button" class="btn btn-default dropdown-toggle">
+        				Actions <span class="caret"></span>
+      				</button>
+      				<ul class="dropdown-menu" role="menu">
+        				<li><a ui-sref="chris-address-detail-addnew-edit({addressId: view.address.data.address_id})">Edit</a></li>
+    					<li><a ui-sref="chris-address-detail-addnew-copy({addressId: view.address.data.address_id})">Copy</a></li>
+    					<li><a ng-click="view.doDeleteAddress()">Delete</a></li>
+      				</ul>
+    			</div>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>ID</td>
+							<td ng-bind="view.address.data.address_id"></td>
+						</tr>
+						<tr>
+							<td>Address</td>
+							<td ng-bind="view.address.data.address"></td>
+						</tr>
+						<tr>
+							<td>District</td>
+							<td ng-bind="view.address.data.district"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<tabset>
+    				<tab heading="Specification">
+    					<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>PHONE</td>
+									<td ng-bind="view.address.data.phone"></td>
+								</tr>
+								<tr>
+									<td>CITY</td>
+									<td ng-bind="view.address.data.city"></td>
+								</tr>
+								<tr>
+									<td>COUNTRY</td>
+									<td ng-bind="view.address.data.country"></td>
+								</tr>
+								<tr>
+									<td>ZipCode</td>
+									<td ng-bind="view.address.data.postal_code"></td>
+								</tr>
+							</tbody>
+						</table>
+    				</tab>
+    				<tab heading="Description">
+    					Description here.
+    				</tab>
+  				</tabset>
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<pager total-items="view.paging.totalItem" page="view.paging.page"></pager>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="deleteConfirmationDialog.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Address Removal Confirmation</h3>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Yes</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>

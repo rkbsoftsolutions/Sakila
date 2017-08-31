@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="chriswebApp">
+    <head>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" type="text/css" href="/deps/font-awesome/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="/deps/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/deps/bootstrap/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="/directives/chris-sidebar/chris-sidebar.css" />
+        <link rel="stylesheet" type="text/css" href="/app.css" />
+        <title>Chris App</title>
+    </head>
+    <body>
+            <div class="chris-header" ui-view="header"></div>
+            <div class="container-fluid">
+                
+                <div class="row">
+                    <div ui-view="sidebar"></div>
+                    <div ui-view="content"></div>
+                </div>
+            </div>
+    	<script type="text/javascript" src="/deps/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/deps/angular-ui-router/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="/deps/angular-bindonce/bindonce.min.js"></script>
+        <script type="text/javascript" src="/deps/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <script type="text/javascript" src="/app.js"></script>
+        <script type="text/javascript" src="/directives/chris-header/chris-header.js"></script>
+        <script type="text/javascript" src="/partials/chris-login/chris-login.js"></script>
+        <script type="text/javascript" src="/partials/chris-customers/chris-customers.js"></script>
+        <script type="text/javascript" src="/partials/chris-country/chris-country.js"></script>
+        <script type="text/javascript" src="/partials/chris-city/chris-city.js"></script>
+        <script type="text/javascript" src="/partials/chris-address/chris-address.js"></script>
+        <script type="text/javascript" src="/partials/chris-rental/chris-rental.js"></script>
+        <script type="text/javascript" src="/services/chris-apiservice.js"></script>
+    </body>
+</html>

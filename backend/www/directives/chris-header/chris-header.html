@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Chris Webapp</a>
+    </div>
+    <div class="navbar-collapse collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs"><a ui-sref="chris-customers">Customer</a></li>
+        <li class="visible-xs"><a ui-sref="chris-country">Country</a></li>
+        <li class="visible-xs"><a ui-sref="chris-city">City</a></li>
+        <li class="visible-xs"><a ui-sref="chris-address">Address</a></li>
+        <li class="visible-xs"><a ui-sref="chris-rental">Rental</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
